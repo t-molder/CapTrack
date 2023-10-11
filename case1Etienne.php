@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Energy bill calculator</title>
+        <link rel="stylesheet" href="./styles/main.css" type="text/css" />
     </head>
     <body>
         <form method="post">
