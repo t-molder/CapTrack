@@ -7,11 +7,13 @@
         <link rel="stylesheet" href="./styles/main.css" type="text/css" />
     </head>
     <body>
+        <main>
         <form method="post">
             <label for="input">Hoeveel energie heb je verbruikt in kW/h?</label>
             <input type="number" id="energie" name="verbruik"><br>
             <button type="submit">Bereken</button>
-        </form><br>
+        </form>
+        <p>
         <?php
         $input = $_POST["verbruik"];
         if (isset($input)) {
@@ -30,5 +32,7 @@
             echo "€" .$bill;
         }
         ?>
+        </p>
+        </main>
     </body>
 </html>
