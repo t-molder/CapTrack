@@ -29,8 +29,8 @@
                 }	elseif ($input > 250){
                     $bill = 1095 + ($input - 250)*6.5;
                 }
-            echo "€" .$bill;
-        }
+                echo "€" . $bill;
+            }
         ?>
         </p>
         </main>
