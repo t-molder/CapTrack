@@ -15,8 +15,8 @@
         </form>
         <p>
         <?php
+            if (isset($_POST["verbruik"]) && !empty($_POST["verbruik"])) {
         $input = $_POST["verbruik"];
-        if (isset($input)) {
             bill($input); 
         }
         function bill($input){
