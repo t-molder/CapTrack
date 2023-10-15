@@ -27,6 +27,23 @@ function bill($input){
 	}
 	echo "€" .$bill;
 }
+
+// $maandVerbruik array(
+// 	'januari' => 'verbruik',
+// 	'februari' => 'verbruik',
+// 	'maart' => 'verbruik',
+// 	'april' => 'verbruik',
+// 	'mei' => 'verbruik',
+// 	'juni' => 'verbruik',
+// 	'juli' => 'verbruik',
+// 	'augustus' => 'verbruik',
+// 	'september' => 'verbruik',
+// 	'oktober' => 'verbruik',
+// 	'november' => 'verbruik',
+// 	'december' => 'verbruik',
+// 	'jaar' => 'verbruik'
+
+// )
 ?>
 </body>
 </html>

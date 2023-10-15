@@ -1,0 +1,60 @@
+.energyForm {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+                        'header header header'
+                        'verbruik kosten overig';
+    
+    /* grid-gap: 50px; */
+    border: 2px solid lightblue;
+    margin-left: 2rem;
+    background-color: #eff5f3;
+}
+
+h3 {
+    background-color: #44b096;
+    color: white;
+    text-align: center;
+}
+
+
+.energyCost {
+    display: grid;
+    grid-area: kosten;
+    
+}
+
+.energyInput {
+    display: grid;
+    grid-area: verbruik;
+    
+    
+}
+
+form {
+    display: grid;
+    grid-area: verbruik;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto auto;
+    grid-template-areas: 'periode verbruik';
+    padding-left: 1rem;
+    border: 1px solid #44b096;
+   
+    /* grid-gap: 25px; */
+}
+
+label.div {
+    display: grid;
+    grid-area: periode;
+    padding-left: 1rem;
+    
+    
+}
+
+input {
+    display: grid;
+    grid-area: verbruik;
+    width: 75px;
+    
+}
