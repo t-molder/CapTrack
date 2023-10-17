@@ -13,11 +13,29 @@
 	<div class="energyInput">
 		<div class="form">
 			<form method="post">
-				<div class="periode"><label for="input">Jaar verbruikt in kW/h?</label></div>
-					<div class ="verbruik"><input  type="number" name="jaar"><br><br></div>
-				<div class="periode"><label for="input">januari in kW/h?</label></div>
-				<div class ="verbruik"><input  type="number" name="januari"><br></div>
-				<div class="periode"><label for="input">februari in kW/h?</label></div>
+				<div class="periode"><label for="input">Selecteer de maand voor de berekening</label></div>
+					<div class="monthSelect">       
+						<select id="month" name="month">
+						<option selected>January</option>
+						<option>February</option>
+						<option>March</option>
+						<option>April</option>
+						<option>May</option>
+						<option>June</option>
+						<option>July</option>
+						<option>August</option>
+						<option>September</option>
+						<option>October</option>
+						<option>November</option>
+						<option>December</option>
+						</select>
+					</div>
+					<div class="energyUsage">
+						<div class="periode"><label for="input">januari in kW/h?</label></div>
+						<div class ="verbruik"><input  type="number" name="januari"><br></div>
+					</div>
+
+				<!-- <div class="periode"><label for="input">februari in kW/h?</label></div>
 				<div class ="verbruik"><input  type="number" name='februari'><br></div>
 				<div class="periode"><label for="input">maart in kW/h?</label></div>
 				<div class ="verbruik"><input  type="number" name='maart'><br></div>
@@ -38,7 +56,7 @@
 				<div class="periode"><label for="input">November in kW/h?</label></div>
 				<div class="verbruik"><input type="number" name='november'><br></div>
 				<div class="periode"><label for="input">December in kW/h?</label></div>
-				<div class ="verbruik"><input type="number" name='december'><br></div>
+				<div class ="verbruik"><input type="number" name='december'><br></div> -->
 				<div><button type="submit">Bereken</button>	
 			</form><br>	
 		</div>
@@ -53,14 +71,14 @@
 		}
 		
 			$energyUsage = $value;
-			if ($energyUsage <= 50){
-					$energyCost = $energyUsage * 3.5;
+			if($energyUsage <= 50){
+					$energyCost = $energyUsage* 3.5;
 				}	elseif ($energyUsage <= 150){
-					$energyCost  = 175 + ($energyUsage - 50)*4;
+					$energyCost = $energyUsage*4;
 				}	elseif ($energyUsage <= 250){
-					$energyCost  = 575 + ($energyUsage - 150)*5.2;
+					$energyCost  = $energyUsage*5.2;
 				}	elseif ($energyUsage > 250){
-					$energyCost  = 1095 + ($energyUsage - 250)*6.5;
+					$energyCost  = $energyUsage*6.5;
 				}
 		echo $key . "€ " .$energyCost  . "<br>";
 	}
