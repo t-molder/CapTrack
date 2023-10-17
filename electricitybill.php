@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Energy bill calculator</title>
-<link rel="stylesheet" href="electricitybill.css">
+<link rel="stylesheet" href="./electricitybill.css">
 </head>
 <body>
 <div class="energyForm" >	

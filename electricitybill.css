@@ -11,8 +11,8 @@
     margin-left: 2rem;
     background-color: #eff5f3;
 }
-
-/* h3 {
+/* 
+h3 {
     background-color: #44b096;
     color: white;
     text-align: center;
@@ -41,8 +41,8 @@
     padding-left: 1rem;
     border: 1px solid #44b096;
    
-    /* grid-gap: 25px; */
-}
+    /* grid-gap: 25px;
+
 
 .selectMont {
     grid-area: periode;
