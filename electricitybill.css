@@ -1,66 +1,34 @@
 .energyForm {
     display: grid;
     grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto;
+    grid-template-rows: auto auto auto;
     grid-template-areas: 
                         'header header header'
-                        'energyusage  overig';
+                        'energyusage costs overig';
     
     /* grid-gap: 50px; */
     border: 2px solid rgb(230, 173, 226);
     margin-left: 2rem;
     background-color: #eff5f3;
 }
-/* 
-h3 {
-    background-color: #44b096;
-    color: white;
-    text-align: center;
-}
 
-
-.energyCost {
-    display: grid;
-    grid-area: kosten;
-    
-}
-
-.energyUsage {
+.energyInput {
     display: grid;
     grid-area: energyusage;
-    
-    
+    grid-auto-columns: auto auto auto;
+    grid-template-areas: 'period input submit';
 }
 
-.form {
-    display: grid;
-    grid-area: energieverbruik;
-    grid-template-columns: auto auto;
-    grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto auto;
-    grid-template-areas: 'periode verbruik';
-    padding-left: 1rem;
-    border: 1px solid #44b096;
-   
-    /* grid-gap: 25px;
-
-
-.selectMont {
-    grid-area: periode;
-
-} */
-
-
-/* label.div {
-    display: grid;
-    grid-area: periode;
-    padding-left: 1rem;
-    
-    
+.period {
+    grid-area: period;
 }
 
-input {
-    display: grid;
-    grid-area: verbruik;
-    width: 75px;
-    
-} */
+
+.energyUsage {
+    width: 20px;
+    grid-area: input;
+}
+
+.submit {
+    grid-area: submit;
+}

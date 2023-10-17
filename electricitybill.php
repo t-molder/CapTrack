@@ -10,62 +10,45 @@
 <div class="energyForm" >	
 <h3>Vul hier uw verbruik in</h3>
 <h3>Hieronder staat uw kosten overzicht</h3>
-	<div class="energyInput">
-		<div class="form">
-			<form method="post">
-				<div class="periode"><label for="input">Selecteer de maand voor de berekening</label></div>
-					<div class="monthSelect">       
-						<select id="month" name="month">
-						<option selected>January</option>
-						<option>February</option>
-						<option>March</option>
-						<option>April</option>
-						<option>May</option>
-						<option>June</option>
-						<option>July</option>
-						<option>August</option>
-						<option>September</option>
-						<option>October</option>
-						<option>November</option>
-						<option>December</option>
+	
+			<form class="energyInput" method="post">
+					<div class="period">       
+						<select required id="month" name="month">
+						<option value = "">Select month</option>
+						<?php
+							
+						
+							for ($month = 1; $month <= 12; $month++) {
+								$monthName = date("F", mktime(0, 0, 0, $month, 1));
+								echo "<option value='$month'>$monthName</option>";	
+							}
+							
+						
+    					?>
 						</select>
 					</div>
 					<div class="energyUsage">
-						<div class="periode"><label for="input">januari in kW/h?</label></div>
-						<div class ="verbruik"><input  type="number" name="januari"><br></div>
+						<input type="number" name="input">
+						
 					</div>
-
-				<!-- <div class="periode"><label for="input">februari in kW/h?</label></div>
-				<div class ="verbruik"><input  type="number" name='februari'><br></div>
-				<div class="periode"><label for="input">maart in kW/h?</label></div>
-				<div class ="verbruik"><input  type="number" name='maart'><br></div>
-				<div class="periode"><label for="input">april in kW/h?</label></div>
-				<div class ="verbruik"><input  type="number" name='april'><br></div>
-				<div class="periode"><label for="input">mei in kW/h?</label></div>
-				<div class ="verbruik"><input  type="number" name='mei'><br></div>
-				<div class="periode"><label for="input">juni in kW/h?</label></div>
-				<div class ="verbruik"><input type="number" name='juni'><br></div>
-				<div class="periode"><label for="input">juli in kW/h?</label></div>
-				<div class ="verbruik"><input type="number" name='juli'><br></div>
-				<div class="periode"><label for="input">augustus in kW/h?</label></div>
-				<div class ="verbruik"><input type="number" name='augustus'><br></div>
-				<div class="periode"><label for="input">september in kW/h?</label></div>
-				<div class ="verbruik"><input type="number" name='september'><br></div>
-				<div class="periode"><label for="input">oktober in kW/h?</label></div>
-				<div class ="verbruik"><input type="number" name='oktober'><br></div>
-				<div class="periode"><label for="input">November in kW/h?</label></div>
-				<div class="verbruik"><input type="number" name='november'><br></div>
-				<div class="periode"><label for="input">December in kW/h?</label></div>
-				<div class ="verbruik"><input type="number" name='december'><br></div> -->
-				<div><button type="submit">Bereken</button>	
+					<div class="submit">
+						<button type="submit">Bereken</button>
+					</div>	
+				
+				
 			</form><br>	
-		</div>
-	</div>	
+		
 <div class="energycost">
 	
 	<?php
+
+	
+
+
 	function calc(){
+
 	foreach($_POST as $key => $value){
+
 		if(is_array($value)){
 			$value = implode(',', $value);
 		}
@@ -80,9 +63,17 @@
 				}	elseif ($energyUsage > 250){
 					$energyCost  = $energyUsage*6.5;
 				}
-		echo $key . "€ " .$energyCost  . "<br>";
+				for ($month = 1; $month <= 12; $month++) {
+					$monthName = date("F", mktime(0, 0, 0, $month, 1));
+					echo "<option value='selected'>$monthName </option>";	
+				}	
+		// echo $key  . "€ " .$energyCost  . "<br>";
 	}
+	
+
+
 	}
+
 
 	calc();
 
