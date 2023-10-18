@@ -13,7 +13,7 @@
 		<main>
 			<form method="post">
 				<label for="energie">Hoeveel energie heb je verbruikt in kW/h?</label>
-				<input type="number" id="energie" name="verbruik" min="0">
+				<input type="number" id="energie" name="verbruik" min="0" value="0">
 				<br />
 				<button type="submit">Bereken</button>
 			</form>
