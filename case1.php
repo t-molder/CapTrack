@@ -16,8 +16,8 @@
 	<button type="submit">Bereken</button>
 </form><br>
 <?php
-$input = $_POST["verbruik"];
-if (isset($input)) {
+if (isset($_POST["verbruik"]) && !empty($_POST["verbruik"])) {
+	$input = $_POST["verbruik"];
 	$bill = bill($input); 
 	$tax = tax($input);
 	$results = array($bill, $tax);
