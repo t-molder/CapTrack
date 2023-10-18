@@ -10,11 +10,13 @@
 <link rel="stylesheet" href="./styles/main.css" type="text/css" />
 </head>
 <body>
-<form method="post">
-	<label for="input">Hoeveel energie heb je verbruikt in kW/h?</label>
-	<input type="number" id="energie" name="verbruik"><br>
-	<button type="submit">Bereken</button>
-</form><br>
+	<main>
+		<form method="post">
+			<label for="energie">Hoeveel energie heb je verbruikt in kW/h?</label>
+			<input type="number" id="energie" name="verbruik"><br>
+			<button type="submit">Bereken</button>
+		</form><br>
+		<p>
 <?php
 if (isset($_POST["verbruik"]) && !empty($_POST["verbruik"])) {
 	$input = $_POST["verbruik"];
@@ -63,5 +65,7 @@ function tax($input){
 // )
 	
 ?>
+		</p>
+	</main>
 </body>
 </html>
