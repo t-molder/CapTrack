@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Energy bill calculator</title>
+	<meta charset="UTF-8">
+	<title>Energy bill calculator</title>
 </head>
 <body>
 <form method="post">
@@ -17,7 +17,6 @@ if (isset($input)) {
 	$tax = tax($input);
 	$results = array($bill, $tax);
 	echo "€" .$results[0]  ."€" .$results[1];
-
 }
 
 function bill($input){
@@ -32,11 +31,9 @@ function bill($input){
 	}
 	return $bill;
 	}
-	//echo "€" .$bill;
+
 function tax($input){
-	$energytax = $input * 0.1125;
-	//echo "€" .$energytax;
-	return $energytax;
+	return $input * 0.1125;
 }
 
 
