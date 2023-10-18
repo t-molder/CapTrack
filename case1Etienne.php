@@ -4,6 +4,9 @@
     <head>
         <meta charset="UTF-8">
         <title>Energy bill calculator</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./styles/main.css" type="text/css" />
     </head>
     <body>
@@ -17,7 +20,9 @@
         <?php
             if (isset($_POST["verbruik"]) && !empty($_POST["verbruik"])) {
                 $input = $_POST["verbruik"];
-                bill($input); 
+                // echo bill($input);
+                // $test = bill($input);
+                // echo "€" . number_format($test, 2);
             }
             function bill($input){
                 if ($input <= 50){
@@ -29,7 +34,8 @@
                 }	elseif ($input > 250){
                     $bill = 1095 + ($input - 250)*6.5;
                 }
-                echo "€" . $bill;
+                return $bill;
+                // echo "€" . number_format($bill, 2);
             }
         ?>
         </p>
