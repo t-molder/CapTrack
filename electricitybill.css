@@ -1,17 +1,33 @@
-
-div.h3 {
-    background-color: #00aa65;
+.maincontainer {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+                        'header1 header2'
+                        'verbruik overzicht';                     
 }
+
+.header1{
+    display: grid;
+    grid-area: header1;
+    background-color: #00aa65;
+    color:black;
+}
+.header2{
+    display: grid;
+    grid-area: header2;
+    background-color: #00aa65;
+    color:black;
+}
+
 .energyForm {
     display: grid;
+    grid-area: verbruik;
     grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto auto;
-    grid-template-areas: 
-                        'header header header'
-                        'energyusage costs overig';
-    
+    grid-template-rows: auto;
+    grid-template-areas:                     
+                        'energyusage costs';
     /* grid-gap: 50px; */
-    
     margin-left: 2rem;
     background-color: #cceee0;
 }
@@ -19,8 +35,9 @@ div.h3 {
 .energyInput {
     display: grid;
     grid-area: energyusage;
-    grid-auto-columns: auto auto auto;
+    grid-auto-columns: 60% 30% 10%;
     grid-template-areas: 'period input submit';
+    /* justify-content: left; */
 }
 
 .period {
@@ -31,8 +48,18 @@ div.h3 {
 .energyUsage {
     width: 20px;
     grid-area: input;
+    /* justify-content: left; */
 }
 
-.submit {
+div.submit {
     grid-area: submit;
+    /* justify-content: end; */
+}
+
+.input {
+    grid-area: input;
+    /* justify-content: left; */
+}
+.energyCosts {
+    grid-area: overzicht;
 }
