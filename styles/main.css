@@ -71,6 +71,13 @@ main {
     background-color: #FFF;
 }
 
+form {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
 label {
     font-size: 1.125em;
 }
@@ -93,4 +100,8 @@ button {
 button:hover {
     background-color: rgb(3, 95, 3);
     cursor: pointer;
+}
+
+p {
+    font-size: large;
 }

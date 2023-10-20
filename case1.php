@@ -12,20 +12,21 @@
 	<body>
 		<main>
 			<form method="post">
-				<label for="energie">Hoeveel energie heb je verbruikt in kW/h?</label>
+				<label for="energie">Hoeveel energie heb je verbruikt in kW/h?
 				<input type="number" id="energie" name="verbruik" min="0" value="0">
-				<br />
+				</label>
 				<button type="submit">Bereken</button>
 			</form>
-			<br />
-			<p>
 	<?php
 		if (isset($_POST["verbruik"]) && !empty($_POST["verbruik"])) {
 			$input = $_POST["verbruik"];
 			$bill = bill($input); 
 			$tax = tax($input);
 			$results = array($bill, $tax);
-			echo "€" .$results[0]  ."€" .$results[1];
+			foreach ($results as $result) {
+				echo "<p>€" . number_format($result, 2) . "</p>";
+			}
+			// echo "€" .$results[0]  ."€" .$results[1];
 
 		}
 
@@ -64,7 +65,6 @@
 		// )
 		
 	?>
-			</p>
 		</main>
 	</body>
 </html>
