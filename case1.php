@@ -82,28 +82,28 @@
 					$maand = "februari";
 					break;
 					case 2;
-					$maand = "march";
+					$maand = "maart";
 					break;
 					case 4;
 					$maand = "april";
 					break;
 					case 5;
-					$maand = "may";
+					$maand = "mei";
 					break;
 					case 6;
-					$maand = "june";
+					$maand = "juni";
 					break;
 					case 7;
-					$maand = "july";
+					$maand = "juli";
 					break;
 					case 8;
-					$maand = "august";
+					$maand = "augustus";
 					break;
 					case 9;
 					$maand = "september";
 					break;
 					case 10;
-					$maand = "october";
+					$maand = "oktober";
 					break;
 					case 11;
 					$maand = "november";
@@ -122,10 +122,10 @@
 			$energyUsage = $value;
 			if($energyUsage <= 50){
 				$energyCost = $energyUsage * 3.5;
-			}elseif($energyUsage > 50 && $energyUsage <= 150){
+			}elseif($energyUsage <= 150){
 				$energyCost = 175 + ($energyUsage - 50)* 4;
 
-			}elseif($energyUsage > 150 && $energyUsage <= 250){
+			}elseif($energyUsage <= 250){
 				$energyCost = 575 + ($energyUsage -150) * 5.2;
 			}elseif($energyUsage > 250){
 				$energyCost = 575 + ($energyUsage -250) * 6.5;
