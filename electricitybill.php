@@ -8,8 +8,8 @@
 </head>
 <body>
 <div class="energyForm" >	
-<h3>Vul hier uw verbruik in</h3>
-<h3>Hieronder staat uw kosten overzicht</h3>
+<h3>&nbsp; &nbsp; &nbsp; Vul hier uw verbruik in&nbsp; &nbsp; &nbsp; </h3>
+<h3>&nbsp; &nbsp; &nbsp; Hieronder staat uw kosten overzicht &nbsp; &nbsp; &nbsp; </h3>
 	
 			<form class="energyInput" method="post">
 					<div class="period">       
@@ -17,10 +17,10 @@
 						<option value = "">Select month</option>
 						<?php
 							
-						
 							for ($month = 1; $month <= 12; $month++) {
-								$monthName = date("F", mktime(0, 0, 0, $month, 1));
-								echo "<option value='$month'>$monthName</option>";	
+								$monthName = date("F", mktime(0, null, null, $month, 1));
+								echo '<option value='.$month.'>'.$monthName.'</option>';
+								
 							}
 							
 						
@@ -28,7 +28,7 @@
 						</select>
 					</div>
 					<div class="energyUsage">
-						<input type="number" name="input">
+						<input required type="number" name="period">
 						
 					</div>
 					<div class="submit">
@@ -43,39 +43,96 @@
 	<?php
 
 	
-
+// if(is_array($value)){
+// 	$value = implode(',', $value);
+// }
 
 	function calc(){
+		$month = "";
+		$energyCost = "";
+		// foreach($_POST as $key => $value){
+		// 	if ($key == "month") { $month = getMonth($value); }
+		// 	if ($key == "input") { $energyCost = energyUsageCalc($value); }
+		// }
 
-	foreach($_POST as $key => $value){
+		if (isset($_POST['month'])) { $month = getMonth($_POST['month']); }
+		if (isset($_POST['period'])) { $energyCost = energyUsageCalc($_POST['period']); }
 
-		if(is_array($value)){
-			$value = implode(',', $value);
+		echo " € " .$energyCost  . "<br>";
+	}
+
+	function getMonth($value) {
+		// Get the right month name
+		for ($month = 1; $month <= 12; $month++) {
+			$monthName = date("F", mktime(0, null, null, $month, 1));
+			$maand = 0;
+			switch($value){
+				 case 1;
+				 $maand = "januari";
+				 break;
+				 case 2;
+				 $maand = "februari";
+				 break;
+				 case 2;
+				 $maand = "march";
+				 break;
+				 case 4;
+				 $maand = "april";
+				 break;
+				 case 5;
+				 $maand = "may";
+				 break;
+				 case 6;
+				 $maand = "june";
+				 break;
+				 case 7;
+				 $maand = "july";
+				 break;
+				 case 8;
+				 $maand = "august";
+				 break;
+				 case 9;
+				 $maand = "september";
+				 break;
+				 case 10;
+				 $maand = "october";
+				 break;
+				 case 11;
+				 $maand = "november";
+				 break;
+				 case 12;
+				 $maand = "december";
+				 break;
+			}
+
+			}
+			echo " Uw verbruik in ". $maand . " " . " is ";
+			return $value;
 		}
 		
-			$energyUsage = $value;
-			if($energyUsage <= 50){
-					$energyCost = $energyUsage* 3.5;
-				}	elseif ($energyUsage <= 150){
-					$energyCost = $energyUsage*4;
-				}	elseif ($energyUsage <= 250){
-					$energyCost  = $energyUsage*5.2;
-				}	elseif ($energyUsage > 250){
-					$energyCost  = $energyUsage*6.5;
-				}
-				for ($month = 1; $month <= 12; $month++) {
-					$monthName = date("F", mktime(0, 0, 0, $month, 1));
-					echo "<option value='selected'>$monthName </option>";	
-				}	
-		// echo $key  . "€ " .$energyCost  . "<br>";
-	}
 	
 
+	function energyUsageCalc($value) {
+		$energyUsage = $value;
+		if($energyUsage <= 50){
+			$energyCost = $energyUsage * 3.5;
+		}elseif($energyUsage > 50 && $energyUsage <= 150){
+			$energyCost = 175 + ($energyUsage - 50)* 4;
 
+		}elseif($energyUsage > 150 && $energyUsage <= 250){
+			$energyCost = 575 + ($energyUsage -150) * 5.2;
+		}elseif($energyUsage > 250){
+			$energyCost = 575 + ($energyUsage -250) * 6.5;
+		}
+
+		return $energyCost;
+							
+	}	
+	
+
+	if (isset($_POST)) {
+		calc();
 	}
-
-
-	calc();
 
 	// var_dump($maanden);
 	// $input = $_POST["verbruik"];

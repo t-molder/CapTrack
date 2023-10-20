@@ -1,3 +1,7 @@
+
+div.h3 {
+    background-color: #00aa65;
+}
 .energyForm {
     display: grid;
     grid-template-columns: auto auto auto;
@@ -7,9 +11,9 @@
                         'energyusage costs overig';
     
     /* grid-gap: 50px; */
-    border: 2px solid rgb(230, 173, 226);
+    
     margin-left: 2rem;
-    background-color: #eff5f3;
+    background-color: #cceee0;
 }
 
 .energyInput {
