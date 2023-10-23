@@ -13,44 +13,33 @@
 		<main>
 
 		<div class="maincontainer">	
-	<div class="header1"><h3>&nbsp; &nbsp; &nbsp; Vul hier uw verbruik in&nbsp; &nbsp; &nbsp; </h3>
-	</div>
-
-	<div class="header2"><h3>&nbsp; &nbsp; &nbsp; Hieronder staat uw kosten overzicht &nbsp; &nbsp; &nbsp; </h3>
-	</div>
-	</div  >
-			<form class="energyInput" method="post">
-					<div class="period">       
-						<select required id="month" name="month">
-						<option value = "">Select month</option>
-						<?php
-
-							for ($month = 1; $month <= 12; $month++) {
-								$monthName = date("F", mktime(0, null, null, $month, 1));
-								echo '<option value='.$month.'>'.$monthName.'</option>';
-								
-							}
-							
-						
-    					?>
-						</select>
-					</div>
-					<div class="energyUsage">
-						<input required type="number" name="period">
-						
-					</div>
-					<div class="submit">
-						<button type="submit">Bereken</button>
-					</div>	
-			</form><br>				
+			<div class="header1"><h3>&nbsp; &nbsp; &nbsp; Vul hier uw verbruik in&nbsp; &nbsp; &nbsp; </h3>
+			</div>
+		</div>
+		<form class="energyInput" method="post">
+			<div class="period">       
+				<select required id="month" name="month">
+					<option value = "">Select month</option>
+					<?php
+						for ($month = 1; $month <= 12; $month++) {
+							$monthName = date("F", mktime(0, null, null, $month, 1));
+							echo '<option value='.$month.'>'.$monthName.'</option>';	
+						}	
+    				?>
+				</select>
+			</div>
+			<div class="energyUsage">
+				<input required type="number" name="period">	
+			</div>
+			<div class="submit">
+				<button type="submit">Bereken</button>
+			</div>	
+		</form><br>				
 	<div class="energycost">
 	<?php	
 
 						
 		function calc(){
-			
-			
-			
 			$month = "";
 			$energyCost = "";
 			$energyTax = 0;
@@ -58,9 +47,7 @@
 			if (isset($_POST['period'])) { $energyCost = energyUsageCalc($_POST['period']);}
 			if (isset($_POST['period'])) { $energyTax = tax($_POST['period']); }
 
-			echo " Uw verbruik in" . " ". " "  . $month . "is" ." " . "€" . $energyCost . "<br>";
-			echo " de betaalde belasting is" . " " . "€" . " " . $energyTax;
-
+			echo "<p>Uw verbruik in "  . $month . " is € " . number_format($energyCost, 2) . "</p>" . "<p>De betaalde belasting is € " . number_format($energyTax, 2) . "</p>";
 		}
 
 		function tax($value){
@@ -71,9 +58,7 @@
 
 		function getMonth($value) {
 			// Get the right month name
-
 			for ($month = 1; $month <= 12; $month++) {
-				$monthName = date("F", mktime(0, null, null, $month, 1));
 				switch($value){
 					case 1;
 					$maand = "januari";
@@ -112,11 +97,10 @@
 					$maand = "december";
 					break;
 				}
-				}
-				
-				return $maand;
-				
-			}		
+			}
+			
+			return $maand;
+		}		
 			
 		function energyUsageCalc($value) {
 			$energyUsage = $value;
@@ -124,36 +108,21 @@
 				$energyCost = $energyUsage * 3.5;
 			}elseif($energyUsage <= 150){
 				$energyCost = 175 + ($energyUsage - 50)* 4;
-
 			}elseif($energyUsage <= 250){
 				$energyCost = 575 + ($energyUsage -150) * 5.2;
 			}elseif($energyUsage > 250){
 				$energyCost = 1095 + ($energyUsage -250) * 6.5;
 			}
-			
+
 			return $energyCost;						
 		}	
 
 		if (isset($_POST)) {
 			calc();
-			
 		}
 
-		
-		
 		?>
 	</div>
-			<!-- <form method="post">
-				<label for="energie">Hoeveel energie heb je verbruikt in kW/h?
-				<input type="number" id="energie" name="verbruik" min="0" value="0">
-				</label>
-				<button type="submit">Bereken</button>
-			</form> -->
-
-
-	
-		
-		
 		</main>
 	</body>
 </html>
