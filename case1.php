@@ -41,7 +41,7 @@
 						
 		function calc(){
 			$month = "";
-			$energyCost = "";
+			$energyCost = 0;
 			$energyTax = 0;
 			if (isset($_POST['month'])) { $month = getMonth($_POST['month']); }
 			if (isset($_POST['period'])) { $energyCost = energyUsageCalc($_POST['period']);}
@@ -50,7 +50,7 @@
 			echo "<p>Uw verbruik in "  . $month . " is € " . number_format($energyCost, 2) . "</p>" . "<p>De betaalde belasting is € " . number_format($energyTax, 2) . "</p>";
 		}
 
-		function tax($value){
+		function tax($value): float{
 			$energyTax = $value * 0.1125;
 			return $energyTax;
 			
@@ -102,7 +102,7 @@
 			return $maand;
 		}		
 			
-		function energyUsageCalc($value) {
+		function energyUsageCalc($value): float {
 			$energyUsage = $value;
 			if($energyUsage <= 50){
 				$energyCost = $energyUsage * 3.5;
