@@ -58,7 +58,7 @@
 			if (isset($_POST['period'])) { $energyCost = energyUsageCalc($_POST['period']);}
 			if (isset($_POST['period'])) { $energyTax = tax($_POST['period']); }
 
-			echo " Uw verbruik in" . " ". " "  . $month . "is" ." " . "€" . $energyCost . "<br>";
+			echo " Uw verbruik in" . " ". " "  . $month . " " . "is" ." " . "€" . $energyCost . "<br>";
 			echo " de betaalde belasting is" . " " . "€" . " " . $energyTax;
 
 		}
