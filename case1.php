@@ -47,7 +47,7 @@
 			if (isset($_POST['period'])) { $energyCost = energyUsageCalc($_POST['period']);}
 			if (isset($_POST['period'])) { $energyTax = tax($_POST['period']); }
 
-			echo "<p>Uw verbruik in "  . $month . " is € " . number_format($energyCost, 2) . "</p>" . "<p>De betaalde belasting is € " . number_format($energyTax, 2) . "</p>";
+			echo "<p>Uw kosten in "  . $month . " zijn € " . number_format($energyCost, 2) . "</p>" . "<p>De betaalde belasting is € " . number_format($energyTax, 2) . "</p>";
 		}
 
 		function tax($value): float{
@@ -66,7 +66,7 @@
 					case 2;
 					$maand = "februari";
 					break;
-					case 2;
+					case 3;
 					$maand = "maart";
 					break;
 					case 4;
